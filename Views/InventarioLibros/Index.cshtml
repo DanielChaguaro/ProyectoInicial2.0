@@ -1,0 +1,86 @@
+﻿@model List<ProyectoInicial.Models.Libros>
+
+@{
+    ViewData["Title"] = "Lista Libros";
+}
+
+<h1 class="text-light">@ViewData["Title"]</h1>
+
+<div class="mb-3">
+    <a href="@Url.Action("Create", "InventarioLibros")" class="btn btn-primary">Nuevo Libro</a>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    body {
+        background-color: #001a1a;
+        padding: 20px; /* Añadir espacio alrededor de la tabla */
+    }
+    /* Estilo para la tabla */
+    table {
+        background-color: blue;
+        color: #fff; /* Texto en color blanco para mejor contraste */
+    }
+
+    /* Estilo para el fondo de la tabla */
+    tbody {
+        background-color: #fff;
+    }
+
+    /* Estilo para el encabezado de la tabla */
+    .thead-dark th {
+        background-color: green;
+        color: #fff;
+        border-color: green;
+    }
+
+
+        /* Estilo para los botones cuando se les pasa el ratón */
+    .btn-primary {
+        background-color: #008000; /* Cambiado a verde para destacar */
+        border-color: #008000;
+        color: #fff;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    }
+
+        /* Estilo para los botones cuando se les pasa el ratón */
+        .btn-primary:hover {
+            background-color: #006400; /* Color de cambio al pasar el ratón para resaltar */
+            border-color: #006400;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+</style>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.IdLibro</th>
+                <td>@item.Nombre</td>
+                <td>@item.Autor</td>
+                <td>@item.cantidad</td>
+                <td>@item.precio</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Acciones">
+                        <a asp-action="Delete" asp-route-IdLibro="@item.IdLibro" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        <a asp-action="Edit" asp-route-IdLibro="@item.IdLibro" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a asp-action="Details" asp-route-IdLibro="@item.IdLibro" class="btn btn-info"><i class="fa-regular fa-eye"></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

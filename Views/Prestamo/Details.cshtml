@@ -1,0 +1,34 @@
+﻿@model Prestamo
+@{
+    ViewData["Title"] = "Detalle de los Prestamos";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label>Id del producto</label>
+        <input asp-for="IdProducto" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label>Cantidad</label>
+        <input asp-for="Cantidad" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label>Precio unitario</label>
+        <input asp-for="PrecioUnitario" class="form-control" disabled>
+    </div>
+    <div class="mb-3">
+        <label>Total</label>
+        <input asp-for="Total" class="form-control" disabled>
+    </div>
+    
+    <div class="row col-6">
+       
+        <div class="col-6 col-md-6">
+            <a asp-action="Index" class="btn btn-outline-secondary">Regresar</a>
+        </div>
+    </div>
+
+
+</form>
+

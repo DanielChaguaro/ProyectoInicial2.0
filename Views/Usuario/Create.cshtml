@@ -1,0 +1,44 @@
+﻿
+@model Usuario
+@{
+    ViewData["Title"] = "Crear Usuario";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form asp-route-returnUrl="@ViewData["Mensaje"]" method="post">
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input asp-for="Nombre" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label>Apellido</label>
+        <input asp-for="Apellido" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label>Perfil  </label>
+        <select name="Perfil">
+            <option>administrador</option>
+            <option>cliente</option>
+        </select>
+        <! input asp-for="Perfil" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label>Usuario</label>
+        <input asp-for="UsuarioP" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label>Contrasena</label>
+        <input asp-for="Contrasena" class="form-control">
+    </div>
+    <div class="row col-6">
+        <div class="col-6 col-md-6">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+        <div class="col-6 col-md-6">
+            <a asp-action="Index" class="btn btn-outline-secondary">Regresar</a>
+        </div>
+    </div>
+
+    
+</form>
+

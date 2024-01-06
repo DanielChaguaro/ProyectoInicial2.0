@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "LoginView";
+    Layout = null;
+    
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <! meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <! link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <! link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <! link rel="stylesheet" href="~/ProyectoInicial.styles.css" asp-append-version="true" />
+    <title>Iniciar Sesión</title>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Libreria Odisea</title>
+        <style>
+            body {
+                font-family: 'Pacifico', cursive;
+                background-image: url('https://images.adsttc.com/media/images/6080/c284/f91c/81a3/2b00/00d0/newsletter/20210407-Maria_Santiba%C3%B1ez_La_Increible-DSC_2506-_copy.jpg?1619051098'); /* Reemplaza 'tu-imagen-de-fondo.jpg' con la ruta de tu imagen */
+                background-size: cover;
+                background-position: center;
+                
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+            }
+
+            #login {
+                text-align: center;
+                margin: 5% auto;
+                max-width: 400px;
+                padding: 20px;
+
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+                #login h3 {
+                    color: #001a1a;
+                }
+
+                #login img {
+                    width: 250px;
+                    border-radius: 50%;
+                    margin: 20px 0;
+                }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-control {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            .btn-info {
+                background-color: #001a1a;
+                color: #fff;
+                border: 1px solid #001a1a;
+                border-radius: 4px;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+
+                .btn-info:hover {
+                    background-color: #fff;
+                    color: #001a1a;
+                }
+
+            .error-message {
+                color: #fff;
+                background-color: #dc3545;
+                border: 1px solid #dc3545;
+                border-radius: 4px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+    <div id="login">
+        <h3>Login - Administrativo</h3>
+        <img src="https://jumpseller.s3.eu-west-1.amazonaws.com/store/libreria-odisea1/assets/Logotipo_ODISEA.png" alt="Imagen">
+
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-12">
+                    <div id="login-box">
+                        <form id="login-form" class="form" action="@Url.Action("Index","Cliente")" method="post">
+                            <h3 style="color:white;">Login</h3>
+                            <div class="form-group">
+                                <input type="text" name="usuarioP" placeholder="Usuario" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="clave" placeholder="Contraseña" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Ingresar">
+                            </div>
+                            @if (TempData.ContainsKey("MensajeError"))
+                            {
+                                <p class="error-message">@TempData["MensajeError"]</p>
+                            }
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
